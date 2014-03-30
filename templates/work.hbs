@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>{{title}}</title>
+  <style type="text/css">
+    p.message { text-align: center; }
+    .meta h1 { font-size: 1.5em; text-align: center; }
+    .meta h2 { font-size: 1.25em; text-align: center; }
+    .meta h2 {page-break-before: always;}
+    .meta .byline { text-align: center; }
+    .meta dl.tags {border: 1px solid;  padding: 1em; }
+    .meta dd { margin: -1em 0 0 10em; }
+    .meta .endnote-link { font-size: .8em; }
+    #chapters  {font-family: serif; padding: 1em; }
+    .userstuff  {font-family: serif; padding: 1em; }
+  </style>
+</head>
+<body>
+
+<p class="message">
+  Posted originally on the <a href="http://archiveofourown.org/">Archive of Our Own</a> at <a href="{{url}}">{{url}}</a>.
+</p>
+
+<div class="meta">
+  <dl class="tags">
+    {{#each tags}}
+      <dt>{{tag_type}}</dt>
+      <dd>
+        {{#join tags ", "}}
+          <a href='{{url}}'>{{name}}</a>
+        {{/join}}
+      </dd>
+    {{/each}}
+    <dt>Stats:</dt>
+    <dd>
+      Published: 2014-02-13
+      Words: {{word_count}}
+    </dd>
+  </dl>
+  <h1>{{title}}</h1>
+  <div class="byline">
+    by 
+    {{#if creators}}
+      {{#sentence creators}}
+        <a href='{{url}}'>{{name}}</a>
+      {{/sentence}}
+    {{else}}
+      Anonymous
+    {{/if}}
+  </div>
+</div>
+
+{{#if summary}}
+<div>{{{summary}}}</div>
+{{/if}}
+
+{{#if notes}}
+<div>{{{notes}}}</div>
+{{/if}}
+
+<div id="chapters" class="userstuff">
+  {{#each chapters}}
+    <h3>{{title}}</h3>
+    {{#if summary}}
+      <div>{{{summary}}}</div>
+    {{/if}}
+    {{#if notes}}
+      <div>{{{notes}}}</div>
+    {{/if}}
+    
+    <div>{{{content}}}</div>
+    
+    {{#if endnotes}}
+      <div>{{{endnotes}}}</div>
+    {{/if}}
+  {{/each}}
+</div>
+
+{{#if endnotes}}
+  <div>{{{endnotes}}}</div>
+{{/if}}
+
+<p class="message">
+  Please <a href="{{comment_url}}">drop by the archive and comment</a> to let the creator know if you enjoyed their work!
+</p>
+
+</body>
+</html>
